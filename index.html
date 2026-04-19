@@ -1,241 +1,536 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisonixRO | Elite Digital Legacy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROABUSINESS | Haz crecer tu negocio con alegría</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <style>
-        :root {
-            --bg-dark: #010208;
-            --bg-card: #050a18;
-            --blue-primary: #0055ff;
-            --blue-secondary: #00d4ff;
-            --blue-deep: #001a4d;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-            --accent-cyan: #22d3ee;
-            --shadow-blue: 0 0 20px rgba(0, 85, 255, 0.5);
-        }
+      :root {
+        --primary: #0084ff;
+        --primary-glow: rgba(0, 132, 255, 0.5);
+        --secondary: #00d4ff;
+        --dark: #0f172a;
+        --light-bg: #f8faff;
+        --white: #ffffff;
+        --glass: rgba(255, 255, 255, 0.8);
+      }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: var(--bg-dark); 
-            color: var(--text-main); 
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: var(--dark);
+        background-color: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; position: relative; z-index: 2; }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Outfit", sans-serif;
+      }
 
-        /* Estilos de Superposición de Imagen Universales */
-        .img-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            z-index: 1; opacity: 0.15; /* Ajusta la opacidad para el misterio */
-            filter: blue(2px);
-        }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 25px;
+      }
 
-        /* --- SECCIÓN 1: ATENCIÓN (Hero Visual) --- */
-        .hero {
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; position: relative; overflow: hidden;
-        }
-        /* Imagen de fondo Hero: Ciudad futurista abstracta */
-        .hero .img-overlay { 
-            background-image: url('https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=2000'); 
-            opacity: 0.2;
-        }
-        .hero::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 30vh;
-            background: linear-gradient(to top, var(--bg-dark), transparent); z-index: 2;
-        }
+      /* --- BOTONES --- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 800;
+        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: none;
+        cursor: pointer;
+      }
+      .btn-wa {
+        background: #25d366;
+        color: white;
+        box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+      }
+      .btn-wa:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+      }
 
-        .hero-content img { width: 200px; margin-bottom: 2rem; filter: drop-shadow(0 0 20px var(--blue-primary)); animation: float 4s ease-in-out infinite; }
-        .hero h1 { 
-            font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; line-height: 0.9; margin-bottom: 1.5rem; letter-spacing: -3px;
-            background: linear-gradient(to bottom, #fff 40%, var(--blue-secondary));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .hero p { font-size: 1.5rem; color: var(--text-dim); max-width: 850px; margin: 0 auto 3rem; font-weight: 300; }
+      .google-play-badge {
+        width: 180px;
+        transition: 0.3s;
+      }
+      .google-play-badge:hover {
+        transform: scale(1.05);
+      }
 
-        /* --- SECCIÓN 2: INTERÉS (El Dolor Visual) --- */
-        .interes { padding: 150px 0; position: relative; background: #000; }
-        /* Imagen de fondo Interés: Servidores o código complejo oscurecido */
-        .interes .img-overlay { 
-            background-image: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2000'); 
-            background-attachment: fixed; /* Efecto Parallax */
-        }
-        
-        .title-large { font-size: 3.5rem; text-align: center; margin-bottom: 1rem; letter-spacing: -2px; }
-        .subtitle { text-align: center; color: var(--accent-cyan); font-size: 1.2rem; margin-bottom: 5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;}
-        
-        .interest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .interest-text h3 { font-size: 2.5rem; color: #fff; margin-bottom: 1.5rem; font-weight: 800;}
-        .interest-text p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 1.8rem; line-height: 1.9; }
+      /* --- SECCIÓN 1: ATENCIÓN (Hero) --- */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+        position: relative;
+        padding-top: 100px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .hero-text h1 {
+        font-size: clamp(3rem, 6vw, 4.5rem);
+        line-height: 1;
+        margin-bottom: 20px;
+      }
+      .hero-text span {
+        color: var(--primary);
+      }
+      .hero-text p {
+        font-size: 1.3rem;
+        color: #475569;
+        margin-bottom: 35px;
+      }
 
-        /* --- SECCIÓN 3: DESEO (La Solución Visual) --- */
-        .deseo { padding: 150px 0; position: relative; background: var(--bg-dark); }
-        .benefit-card {
-            background: rgba(10, 17, 32, 0.7); border: 1px solid rgba(0, 212, 255, 0.08);
-            padding: 60px; border-radius: 40px; margin-bottom: 40px; display: grid; grid-template-columns: 120px 1fr; gap: 40px;
-            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); position: relative; overflow: hidden; backdrop-filter: blur(10px);
-        }
-        .benefit-card:hover { border-color: var(--blue-secondary); background: rgba(0, 212, 255, 0.08); transform: translateY(-10px); box-shadow: var(--shadow-blue); }
-        
-        /* Imagen dentro de la tarjeta de beneficio (opacidad baja) */
-        .card-bg-img { position: absolute; top: 0; right: 0; width: 50%; height: 100%; background-size: cover; background-position: center; opacity: 0.03; z-index: 1; filter: grayscale(100%); }
+      .hero-image {
+        position: relative;
+      }
+      .hero-image img {
+        width: 100%;
+        border-radius: 40px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        border: 10px solid white;
+      }
 
-        .benefit-icon { font-size: 4rem; color: var(--blue-primary); display: flex; align-items: center; justify-content: center; position: relative; z-index: 2;}
-        .benefit-text { position: relative; z-index: 2; }
-        .benefit-card h4 { font-size: 2.2rem; margin-bottom: 15px; color: #fff; font-weight: 800; }
-        .benefit-card p { font-size: 1.1rem; color: var(--text-dim); line-height: 1.8; }
+      /* --- SECCIÓN 2: EL PROBLEMA --- */
+      .problema {
+        padding: 100px 0;
+        background: var(--light-bg);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        text-align: center;
+      }
+      .stat-card {
+        padding: 40px;
+        background: white;
+        border-radius: 30px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+      .stat-card h3 {
+        font-size: 3rem;
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
 
-        /* --- SECCIÓN 4: ACCIÓN (El Cierre Visual) --- */
-        .accion { 
-            padding: 200px 0; text-align: center; position: relative;
-            background: radial-gradient(circle at center, var(--blue-deep) 0%, #000 100%);
-        }
-        /* Imagen de fondo Acción: Abstracto de conexión o red global */
-        .accion .img-overlay { 
-            background-image: url('https://images.unsplash.com/photo-1520004434532-66841600f711?q=80&w=2000'); 
-            opacity: 0.1;
-        }
+      /* --- SECCIÓN 3: INTERÉS (Galería de Éxito) --- */
+      .galeria {
+        padding: 100px 0;
+      }
+      .image-collage {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 50px;
+      }
+      .collage-item {
+        height: 350px;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+      .collage-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+      }
+      .collage-item:hover img {
+        transform: scale(1.1);
+      }
+      .collage-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: white;
+      }
 
-        .cta-box { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
-        
-        .btn-massive {
-            display: inline-flex; align-items: center; gap: 20px;
-            background: linear-gradient(45deg, var(--blue-primary), var(--blue-secondary));
-            color: white; padding: 25px 70px; border-radius: 100px;
-            font-size: 1.6rem; font-weight: 900; text-decoration: none;
-            box-shadow: 0 15px 50px rgba(0, 85, 255, 0.5);
-            transition: 0.4s; margin-top: 40px; letter-spacing: -1px;
-        }
-        .btn-massive:hover { transform: scale(1.08) rotate(-1deg); box-shadow: 0 25px 60px rgba(0, 212, 255, 0.7); }
+      /* --- SECCIÓN 4: DESEO (Cómo funciona) --- */
+      .pasos {
+        padding: 120px 0;
+        background: var(--dark);
+        color: white;
+      }
+      .step-card {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+      .step-card:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+      .step-num {
+        font-size: 5rem;
+        font-weight: 900;
+        color: var(--primary);
+        opacity: 0.5;
+      }
+      .step-img {
+        flex: 1;
+      }
+      .step-img img {
+        width: 100%;
+        border-radius: 30px;
+        border: 2px solid var(--primary);
+        object-fit: cover;
+      }
+      .step-text {
+        flex: 1;
+      }
 
-        .wa-float {
-            position: fixed; bottom: 40px; right: 40px; background: #25d366;
-            width: 75px; height: 75px; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center; color: white;
-            font-size: 38px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 1000;
-            transition: 0.3s;
-        }
-        .wa-float:hover { transform: rotate(15deg) scale(1.1); }
+      /* --- SECCIÓN 5: ACCIÓN (Conversión) --- */
+      .cta-final {
+        padding: 150px 0;
+        text-align: center;
+        background: radial-gradient(circle, #e0f2fe, #fff);
+      }
+      .cta-box {
+        background: white;
+        padding: 80px 40px;
+        border-radius: 60px;
+        box-shadow: 0 40px 80px rgba(0, 132, 255, 0.15);
+        border: 2px solid var(--primary);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
 
-        /* Animaciones */
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+      /* --- FOOTER --- */
+      footer {
+        padding: 60px 0;
+        background: #010208;
+        color: white;
+        text-align: center;
+      }
 
-        @media (max-width: 992px) {
-            .interest-grid { grid-template-columns: 1fr; text-align: center; }
-            .benefit-card { grid-template-columns: 1fr; text-align: center; padding: 40px; }
-            .benefit-icon { margin-bottom: 20px; font-size: 3.5rem; }
-            .title-large { font-size: 2.5rem; }
-            .hero h1 { font-size: 3.5rem; }
+      /* --- ANIMACIONES ADICIONALES --- */
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .hero-grid,
+        .hero-text,
+        .step-card,
+        .step-card:nth-child(even) {
+          grid-template-columns: 1fr;
+          flex-direction: column;
+          text-align: center;
+        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <section class="hero">
-        <div class="img-overlay"></div> <div class="container hero-content">
-            <img src="/logo.png" alt="VisonixRO" data-aos="zoom-in">
-            <h1 data-aos="fade-up">¿Tu Presencia Web es <span class="gradient-text">Invisible?</span></h1>
-            <p data-aos="fade-up" data-aos-delay="200">
-                En <b>VisonixRO</b>, no creamos sitios genéricos. Esculpimos identidades digitales de alto rendimiento que capturan la atención, dominan el mercado y convierten visitantes en clientes leales. <b>Es hora de poseer tu legado.</b>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text" data-aos="fade-right">
+            <img
+              src="milogo.png"
+              alt="ROABUSINESS Amigable"
+              style="width: 180px; margin-bottom: 20px"
+            />
+            <h1>
+              ¿Tu negocio es el secreto mejor <span>guardado</span> de la
+              ciudad?
+            </h1>
+            <p>
+              Deja de ser invisible. Únete a la comunidad de negocios alegres
+              que ya están recibiendo clientes locales y turistas gracias a
+              ROABUSINESS.
             </p>
-            <div data-aos="fade-up" data-aos-delay="400">
-                <a href="#accion" class="btn-massive">RECLAMAR MI AUDITORÍA DE IMPACTO</a>
+            <div
+              style="
+                display: flex;
+                gap: 20px;
+                flex-wrap: wrap;
+                align-items: center;
+              "
+            >
+              <a href="https://wa.me/88857653" class="btn btn-wa"
+                ><i class="fab fa-whatsapp"></i> REGISTRAR MI LOCAL</a
+              >
+              <a
+                href="https://play.google.com/store/apps/details?id=com.roabusiness.app&pcampaignid=web_share"
+                target="_blank"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                  class="google-play-badge"
+                  alt="Get it on Google Play"
+                />
+              </a>
             </div>
+          </div>
+          <div class="hero-image" data-aos="fade-left">
+            <img
+              src="https://images.pexels.com/photos/3935702/pexels-photo-3935702.jpeg?_gl=1*aqjd2l*_ga*MTE2OTA3MjAyMS4xNzc2NjI5NTIw*_ga_8JE65Q40S6*czE3NzY2Mjk1MjAkbzEkZzAkdDE3NzY2Mjk1MjAkajYwJGwwJGgw"
+              alt="Emprendedores felices"
+              class="floating"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="interes">
-        <div class="img-overlay"></div> <div class="container">
-            <h2 class="title-large" data-aos="fade-up">El Costo Silencioso de la Mediocridad Digital.</h2>
-            <p class="subtitle" data-aos="fade-up" data-aos-delay="100">VISONIXRO ESTUDIO DIGITAL: ANÁLISIS DE MERCADO</p>
-            
-            <div class="interest-grid">
-                <div class="interest-text" data-aos="fade-right">
-                    <h3>¿Por qué tu competencia te está ganando?</h3>
-                    <p>La mayoría de los negocios online fallan no por falta de producto, sino por falta de <b>autoridad visual y estratégica</b>. Un sitio web que carga lento, que no se adapta a móviles o que tiene un diseño anticuado proyecta desconfianza instantánea.</p>
-                    <p>En el mundo post-digital de 2026, si no impactas en los primeros 2 segundos, eres irrelevante. En <b>VisonixRO</b>, diseccionamos tu nicho y usamos ingeniería inversa para crear una experiencia que enganche emocionalmente a tu cliente ideal.</p>
-                </div>
-                <div class="interest-image" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800" alt="Frustración Digital" style="width:100%; border-radius: 30px; border: 2px solid var(--blue-deep); box-shadow: var(--shadow-blue);">
-                </div>
-            </div>
+    <section class="problema">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 80px" data-aos="fade-up">
+          <h2 style="font-size: 3rem">El mundo cambió, ¿y tú?</h2>
+          <p style="font-size: 1.2rem; color: #475569">
+            Los clientes ya no buscan en las calles, buscan en su celular.
+          </p>
         </div>
+        <div class="stats-grid">
+          <div class="stat-card" data-aos="zoom-in">
+            <h3>85%</h3>
+            <p>
+              De los turistas eligen dónde comer o comprar usando mapas
+              digitales antes de salir de su hotel.
+            </p>
+          </div>
+          <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+            <h3>24/7</h3>
+            <p>
+              Tu negocio estará visible incluso cuando estés durmiendo. Tu
+              perfil trabaja por ti siempre.
+            </p>
+          </div>
+          <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
+            <h3>100%</h3>
+            <p>
+              Crecimiento. Estar donde están los clientes es la única forma de
+              asegurar el éxito comercial hoy.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="deseo">
-        <div class="container">
-            <h2 class="title-large" data-aos="fade-up" style="text-align: left;">La Arquitectura del Éxito.</h2>
-            <p class="subtitle" data-aos="fade-up" data-aos-delay="100" style="text-align: left; margin-bottom: 60px;">SOLUCIONES ELITE DE VISONIXRO</p>
-            
-            <div class="benefit-card" data-aos="fade-up">
-                <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=600');"></div> <div class="benefit-icon"><i class="fas fa-fingerprint"></i></div>
-                <div class="benefit-text">
-                    <h4>Identidad de Marca Inconfundible</h4>
-                    <p>Tu web será una extensión táctil de tu visión. Fusionamos el diseño UX/UI de vanguardia con la psicología del color de VisonixRO (Cobalt & Cyan) para crear una estética que respire lujo, tecnología y confianza absoluta.</p>
-                </div>
-            </div>
-
-            <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600');"></div> <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
-                <div class="benefit-text">
-                    <h4>Rendimiento y Velocidad de Élite</h4>
-                    <p>No más esperas. Utilizamos micro-arquitecturas de software avanzadas y optimización de activos para garantizar tiempos de carga sub-segundo. Google amará tu sitio, y tus clientes también. La velocidad es la nueva moneda digital.</p>
-                </div>
-            </div>
-
-            <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=600');"></div> <div class="benefit-icon"><i class="fas fa-piggy-bank"></i></div>
-                <div class="benefit-text">
-                    <h4>Ingeniería de Conversión (ROI-First)</h4>
-                    <p>Diseñamos flujos de usuario obsesivamente optimizados. Cada botón, cada texto y cada imagen están estratégicamente colocados para guiar al visitante a través de un embudo de ventas invisible pero irresistible. Tu web dejará de ser un folleto y se convertirá en tu mejor vendedor.</p>
-                </div>
-            </div>
+    <section class="galeria">
+      <div class="container">
+        <h2 style="text-align: center; font-size: 3rem" data-aos="fade-up">
+          La alegría de un negocio lleno
+        </h2>
+        <div class="image-collage">
+          <div class="collage-item" data-aos="flip-left">
+            <img
+              src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Restaurante feliz"
+            />
+            <div class="collage-overlay"><h4>Restaurantes con Vida</h4></div>
+          </div>
+          <div class="collage-item" data-aos="flip-left" data-aos-delay="200">
+            <img
+              src="https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Tienda feliz"
+            />
+            <div class="collage-overlay"><h4>Tiendas que Conectan</h4></div>
+          </div>
+          <div class="collage-item" data-aos="flip-left" data-aos-delay="400">
+            <img
+              src="https://images.pexels.com/photos/1036857/pexels-photo-1036857.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Turistas buscando"
+            />
+            <div class="collage-overlay"><h4>Turistas Satisfechos</h4></div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="accion" id="accion">
-        <div class="img-overlay"></div> <div class="container">
-            <div class="cta-box" data-aos="zoom-in">
-                <h2 style="font-size: 4rem; margin-bottom: 2rem; letter-spacing: -2px; line-height: 1;">¿Estás Listo para <br><span class="gradient-text">Dominar?</span></h2>
-                <p style="font-size: 1.4rem; color: var(--text-dim); margin-bottom: 3rem; line-height: 1.8;">
-                    La ventana de oportunidad digital se cierra rápidamente. No permitas que tu visión se diluya en la mediocridad. Agenda una consultoría estratégica gratuita con los expertos de **VisonixRO** hoy mismo y descubre el verdadero potencial de tu negocio.
-                </p>
-                
-                <a href="https://wa.me/88857653" class="btn-massive">
-                    <i class="fab fa-whatsapp"></i> INICIAR MI TRANSFORMACIÓN
-                </a>
-                
-                <p style="margin-top: 3rem; font-size: 1rem; color: var(--blue-secondary); opacity: 0.8;">
-                    Atención Elite Inmediata | Proyectos Limitados por Trimestre
-                </p>
-            </div>
+    <section class="pasos">
+      <div class="container">
+        <h2
+          style="text-align: center; font-size: 3.5rem; margin-bottom: 100px"
+          data-aos="fade-down"
+        >
+          Tu camino al éxito en 3 pasos
+        </h2>
+
+        <div class="step-card" data-aos="fade-right">
+          <div class="step-num">01</div>
+          <div class="step-text">
+            <h3>Contacta al Administrador</h3>
+            <p>
+              Haz clic en el botón de WhatsApp. Nuestro administrador de élite
+              te atenderá personalmente para conocer tu negocio y verificar tu
+              calidad.
+            </p>
+          </div>
+          <div class="step-img">
+            <img
+              src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Reunión amigable"
+            />
+          </div>
         </div>
+
+        <div class="step-card" data-aos="fade-left">
+          <div class="step-num">02</div>
+          <div class="step-text">
+            <h3>Configura tu Perfil Verificado</h3>
+            <p>
+              No solo te registramos, diseñamos tu éxito. Nos encargamos de que
+              tus mejores fotografías, ubicación exacta luzcan impecables.
+              Creamos para ti un perfil profesional que proyecta confianza y
+              alegría, optimizando cada detalle para que tu negocio esté listo
+              para recibir una oleada constante de nuevas visitas.
+            </p>
+          </div>
+          <div class="step-img">
+            <img
+              src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Configurando app"
+            />
+          </div>
+        </div>
+
+        <div class="step-card" data-aos="fade-right">
+          <div class="step-num">03</div>
+          <div class="step-text">
+            <h3>¡Recibe Nuevos Clientes!</h3>
+            <p>
+              Aparece en el mapa de miles de usuarios. Observa cómo llegan
+              nuevos rostros a tu local gracias a que finalmente estás en el
+              mapa digital de ROABUSINESS.
+            </p>
+          </div>
+          <div class="step-img">
+            <img
+              src="https://images.pexels.com/photos/3756345/pexels-photo-3756345.jpeg"
+              alt="Negocio lleno y exitoso"
+            />
+          </div>
+        </div>
+      </div>
     </section>
 
-    <footer style="padding: 60px 0; text-align: center; color: #333; background: #000; position: relative; z-index: 2;">
-        <p>VisonixRO Estudio Digital &copy; 2026. Innovación Implacable.</p>
+    <section class="cta-final">
+      <div class="container">
+        <div class="cta-box" data-aos="zoom-in">
+          <h2 style="margin-bottom: 20px">¿Listo para que el mundo te vea?</h2>
+          <p>
+            No dejes que tu competencia se registre primero. Únete hoy a la
+            comunidad ROABUSINESS y empieza a brillar en el mapa.
+          </p>
+
+          <div
+            style="
+              display: flex;
+              gap: 20px;
+              justify-content: center;
+              flex-wrap: wrap;
+              align-items: center;
+            "
+          >
+            <a href="https://wa.me/88857653" class="btn btn-wa"
+              ><i class="fab fa-whatsapp"></i> HABLAR CON EL ADMINISTRADOR</a
+            >
+            <a
+              href="https://play.google.com/store/apps/details?id=com.roabusiness.app&pcampaignid=web_share"
+              target="_blank"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                class="google-play-badge"
+                alt="Get it on Google Play"
+              />
+            </a>
+          </div>
+          <p style="margin-top: 30px; font-weight: bold; color: var(--primary)">
+            ¡Cupos de verificación premium limitados por zona!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <img
+          src="milogo.png"
+          alt="ROABUSINESS"
+          style="
+            width: 100px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+          "
+        />
+        <p>ROABUSINESS &copy; 2026 | El Futuro del Comercio Local Amigable</p>
+        <div style="margin-top: 20px">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.roabusiness.app"
+            style="color: white; margin: 0 10px"
+            target="_blank"
+            ><i class="fab fa-google-play"></i
+          ></a>
+          <a href="#" style="color: white; margin: 0 10px"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" style="color: white; margin: 0 10px"
+            ><i class="fab fa-facebook"></i
+          ></a>
+        </div>
+      </div>
     </footer>
 
     <a href="https://wa.me/88857653" class="wa-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+      <i class="fab fa-whatsapp"></i>
     </a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1400,
-            once: false,
-            mirror: true
-        });
+      AOS.init({
+        duration: 1200,
+        once: false,
+        mirror: true,
+      });
     </script>
-</body>
+  </body>
 </html>
